@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import CardContainer from './components/CardContainer';
+import Card from './components/Card';
+import { useEffect, useState } from 'react';
+import "./components/Card.css"
+import CardInfo from './components/CardInfo';
 
 function App() {
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+      .then(response => {
+        if(!response.ok) {
+          throw new Error("Failed to fetch")
+        }
+        return response.json() // parses the response data
+      })
+      .then(result => setData(result.results)) // result is now data
+      .catch(err => err) // return the error
+    }, [])// dependencies array is empty so the fetch request is only run once
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CardContainer
+        data={data}
+      />
+      <CardInfo
+        
+      />
     </div>
   );
 }

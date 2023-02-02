@@ -1,0 +1,17 @@
+.title {
+  font-weight: bold;
+}
+
+.card {
+  border-style: solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 8px;
+  width: 175px;
+}
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
