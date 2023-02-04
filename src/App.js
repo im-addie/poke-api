@@ -1,9 +1,9 @@
 import './App.css';
-import CardContainer from './components/CardContainer';
-import Card from './components/Card';
-import { useEffect, useState } from 'react';
 import "./components/Card.css"
-import CardInfo from './components/CardInfo';
+import CardContainer from './components/CardContainer';
+import PokeInfo from './components/PokeInfo'
+import { useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -23,12 +23,10 @@ function App() {
 
   return (
     <div className="App">
-      <CardContainer
-        data={data}
-      />
-      <CardInfo
-        
-      />
+      <Routes>
+        <Route path="/" element={<CardContainer data={data}/>} />
+        <Route path="/pokemon/:pokemonName" element={<PokeInfo />} />
+      </Routes>
     </div>
   );
 }

@@ -1,28 +1,16 @@
 //imports
 import { useEffect, useState } from "react"
-import { capitalize } from "../utility/utils"
+import { capitalize, getTypes } from "../utility/utils"
+import { Route, Link } from "react-router-dom"
+import PokeInfo from "./PokeInfo"
 
 //define helper functions and variables here
-
-const getTypes = (typeArray) => {
-  let types = typeArray.map((element) => {
-    return capitalize(element.type.name)
-  })
-  return types.join(', ')
-}
-
-const getAbilities = (abilityArray) => {
-  let abilities = abilityArray.map((element) => {
-    return capitalize(element.ability.name)
-  })
-  return abilities.join(', ')
-}
 
 function Card(props) {
   
   const {
   name,
-  url,
+  url
   } = props
   
   //define state
@@ -44,17 +32,15 @@ function Card(props) {
 
   return (
     <div className="card">
+      <Link to={`/pokemon/${pokeData?.id}`} element={<PokeInfo />}>
       {!pokeData ? <div>Fetching data. Please wait...</div>: 
       <div>  
-        <img src={pokeData?.sprites?.front_default}/>
+        <img src={pokeData.sprites.other.dream_world.front_default} style={{height: 125}}/>
         <div className="title">{capitalize(pokeData.name)}</div>
         <div className="desc">Type: {getTypes(pokeData.types)} </div>
-        <div className="desc">Weight: {pokeData.weight}</div>
-        <div className="desc">Height: {pokeData.height}</div>
-        <div className="desc">Abilities: {getAbilities(pokeData.abilities)} </div>
       </div>
       }
-
+      </Link>
     </div>
   )
 }
