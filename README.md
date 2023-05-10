@@ -4,7 +4,7 @@
 JavaScript, React, and Material UI
 
 ### 📋 Overview
-The Pokédex repository is a project that combines my passion for video games with my journey in learning the React framework. The Pokédex utilizes the [Poke API](https://pokeapi.co/) to fetch data for the original 151 Pokémon. As a first-time React user, this repository serves as a hands-on learning experience for me, allowing me to apply React concepts while creating an interactive and user-friendly Pokédex application.
+The Pokédex is a project that combines my passion for video games with my journey in learning the React framework. The Pokédex utilizes the [Poke API](https://pokeapi.co/) to fetch data for the original 151 Pokémon. As a first-time React user, this repository serves as a hands-on learning experience for me, allowing me to apply React concepts while creating an interactive and user-friendly Pokédex application.
 
 ### ✨ Features
 - Landing page
